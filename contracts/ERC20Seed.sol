@@ -22,9 +22,9 @@ contract ERC20Seed is ERC20, Ownable {
     // ------------------------------------------------------------------------
     // Don't accept ETH
     // ------------------------------------------------------------------------
-    fallback() external payable {
-        revert("ETH not accepted");
-    }
+    // fallback() external payable {
+    //     revert("ETH not accepted");
+    // }
 
     receive() external payable {
         revert("ETH not accepted");
