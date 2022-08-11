@@ -79,36 +79,16 @@ module.exports = {
       timeoutBlocks: 200,
       skipDryRun: true
     },
-    mainnet: {
+    polygon: {
       provider: () =>
         new HDWalletProvider(
-          process.env.mnemonic,
-          `https://avalanche--mainnet--rpc.datahub.figment.io/apikey/${process.env.FIGMENT_KEY}/ext/bc/C/rpc`
+          process.env.PRIVATE_KEY,
+          `https://polygon-mainnet.g.alchemy.com/v2/${process.env.ALCHEMY_KEY}`
         ),
-      network_id: 43114,
-      gas: 8000000,
-      gasPrice: 161000000000,
+      network_id: 137,
+      // gas: 8000000,
+      // gasPrice: 161000000000,
       timeoutBlocks: 200,
-      confirmations: 2,
-      skipDryRun: true
-    },
-    avaxtest: {
-      provider: function () {
-        return new HDWalletProvider({ privateKeys: [process.env.mnemonic], providerOrUrl: process.env.PROVIDER, chainId: "0xa869" })
-      },
-      gas: 6000000,
-      gasPrice: 225000000000,
-      network_id: "*",
-      confirmations: 2,
-      skipDryRun: true
-    },
-    avaxmainnet: {
-      provider: function () {
-        return new HDWalletProvider({ privateKeys: [process.env.mnemonic], providerOrUrl: process.env.PROVIDER, chainId: "0xa86a" })
-      },
-      gas: 6000000,
-      gasPrice: 50000000000,
-      network_id: "*",
       confirmations: 2,
       skipDryRun: true
     },

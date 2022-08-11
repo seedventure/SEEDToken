@@ -25,17 +25,17 @@ const { ZERO_ADDRESS } = constants;
 
 
 contract('ERC20SeedContract', function (accounts) {
-  const name = 'Seed Token';
-  const supply = new BN('30000000');
+  const name = 'SEED Token';
+  const supply = new BN('300000000');
   const [ owner, recipient, anotherAccount ] = accounts;
   
   const chainId = 1; // await web3.eth.net.getId(); See: https://github.com/trufflesuite/ganache-core/issues/515
   
   beforeEach(async function () {
-    this.token = await ERC20Seed.new(name, "SEED", supply, { from: owner });
+    this.token = await ERC20Seed.new(supply, { from: owner });
   });
   
-  shouldBehaveLikeERC20('ERC20', (new BN('30000000000000000000000000')), owner, recipient, anotherAccount); // Appended 18 0s because initialSupply is multiplied by 10**18 in the ERC20Seed constructor
+  shouldBehaveLikeERC20('ERC20', (new BN('300000000000000000000000000')), owner, recipient, anotherAccount); // Appended 18 0s because initialSupply is multiplied by 10**18 in the ERC20Seed constructor
   
   describe('is initialized properly', function () {
     it('deploys the token', async function () {
@@ -94,6 +94,13 @@ contract('ERC20SeedContract', function (accounts) {
         expect(err.reason).to.be.equal('Ownable: caller is not the owner');
       }
     });
+  });
+
+  describe('NOT Accepting Ethers', function () {
+    it('should revert if someone sends eth', async function () {
+      await expectRevert(web3.eth.sendTransaction({from:anotherAccount, value: web3.utils.toWei("1"), to: this.token.address}), "ETH not accepted");
+      expect((await web3.eth.getBalance(this.token.address)).toString()).to.be.equal("0")
+    })
   });
 
 });
