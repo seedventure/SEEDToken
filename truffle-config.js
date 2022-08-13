@@ -70,7 +70,7 @@ module.exports = {
       networkCheckTimeout: 1000000,
       provider: () =>
         new HDWalletProvider(
-          process.env.private_key,
+          process.env.PRIVATE_KEY,
           `https://kovan.infura.io/v3/${process.env.INFURA_KEY}`
         ),
       network_id: 42,
@@ -86,8 +86,8 @@ module.exports = {
           `https://polygon-mainnet.g.alchemy.com/v2/${process.env.ALCHEMY_KEY}`
         ),
       network_id: 137,
-      // gas: 8000000,
-      // gasPrice: 161000000000,
+      gas: 8000000,
+      gasPrice: 100000000000,
       timeoutBlocks: 200,
       confirmations: 2,
       skipDryRun: true
@@ -111,7 +111,7 @@ module.exports = {
   // Configure your compilers
   compilers: {
     solc: {
-      version: "0.8.13",    // Fetch exact version from solc-bin (default: truffle's version)
+      version: "0.8.15",    // Fetch exact version from solc-bin (default: truffle's version)
       // docker: true,        // Use "0.5.1" you've installed locally with docker (default: false)
       settings: {          // See the solidity docs for advice about optimization and evmVersion
         optimizer: {
