@@ -6,3 +6,4 @@ Total Supply: 300,000,000
 Decimals: 18  
 Name: SEED  
 Symbol: SEED
+

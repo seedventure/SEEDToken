@@ -1,0 +1,34 @@
+{
+  "name": "seedtoken",
+  "version": "1.0.0",
+  "description": "SEEDVenture main Token",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/seedventure/SEEDToken.git"
+  },
+  "author": "",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/seedventure/SEEDToken/issues"
+  },
+  "homepage": "https://github.com/seedventure/SEEDToken#readme",
+  "dependencies": {
+    "@openzeppelin/contracts": "^4.5.0",
+    "@truffle/hdwallet-provider": "^1.4.1",
+    "dotenv": "^16.0.0",
+    "web3": "latest"
+  },
+  "devDependencies": {
+    "@openzeppelin/test-helpers": "^0.5.15",
+    "eth-gas-reporter": "^0.2.22",
+    "ganache-cli": "^6.12.2",
+    "ganache-time-traveler": "^1.0.16",
+    "solidity-coverage": "0.7.16",
+    "truffle-contract-size": "^2.0.1",
+    "truffle-plugin-verify": "^0.5.27"
+  }
+}
